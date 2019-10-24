@@ -3,7 +3,14 @@ const Controller = require('egg').Controller;
 class GoodsController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'goods';
+    const res = await ctx.service.goods.index();
+    const list = [
+      1,2,3,4,5
+    ];
+    await ctx.render('home.html', {
+      res,
+      list
+    });
   }
   // GET
   async detail() {
@@ -23,24 +30,24 @@ class GoodsController extends Controller {
     const { name, id } = ctx.request.body;
     console.log(ctx.request.body);
     ctx.body = {
-      id:`back ${id}`,
-      name:`back ${name}`,
+      id: `back ${id}`,
+      name: `back ${name}`,
     }
   }
   // PUT
-  async updateGoods(){
+  async updateGoods() {
     const { ctx } = this;
     console.log(ctx.params);
     ctx.body = {
-      id:ctx.params.id,
+      id: ctx.params.id,
     }
   }
   // DELETE
-  async deleteGoods(){
+  async deleteGoods() {
     const { ctx } = this;
     console.log(ctx.params);
     ctx.body = {
-      id:ctx.params.id,
+      id: ctx.params.id,
     }
   }
 
