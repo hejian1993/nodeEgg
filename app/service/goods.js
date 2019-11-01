@@ -1,11 +1,5 @@
 const Service = require('egg').Service;
 class GoodsService extends Service {
-<<<<<<< Updated upstream
-  async index() {
-    return {
-      id: 789,
-      name: 'test_hefen',
-=======
   async create(params) {
     const { app } = this;
     try {
@@ -40,7 +34,6 @@ class GoodsService extends Service {
     } catch (err) {
       console.log(err);
       return null;
->>>>>>> Stashed changes
     }
   }
 }
